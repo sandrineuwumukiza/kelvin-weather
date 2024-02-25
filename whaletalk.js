@@ -1,4 +1,4 @@
-// WHALE TALK// Step 1: Create a variable named input
+// WHALE TALK
 const input = 'turpentine and turtles';
 const vowels = ['a', 'e', 'i', 'o', 'u'];
 
