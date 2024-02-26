@@ -6,33 +6,42 @@ let unnecessaryWord = 'literally';
 
 let misspelledWord = 'beautifull';
 
-let badWord = 'freaking';
+let badWord = 'literally';
 let storyWords = story.split(' ');
 let count = 0;
+
 storyWords.forEach(word => count ++);
 console.log(count);
 storyWords.filter(word => word !== unnecessaryWord)
-storyWords = storyWords.map(word => word === misspelledWord ? 'beautiful' : word);
+storyWords = storyWords.map((word,index) => word === misspelledWord ? 'beautiful' : word);
+
+let badWordIndex = storyWords.findIndex(word => {
+  for (let i = 0; i < word.length; i++) {
+    if(word === badWord){
+        return word[i];
+    }
+  }
+});
+
+storyWords[badWordIndex] = 'really'
+
+let lengthCheck = storyWords.every(word => word.length <= 10 ? true : false);
+
+let longWord = storyWords.findIndex(word => {
+    for (let i = 0; i < word.length; i++) {
+       if(word.length > 10){
+return word[i];
+       }
+      }
+});
 
 let readableText = storyWords.join(' ')
 console.log(readableText);
 console.log(storyWords)
+console.log(badWordIndex)
 
-// let badWordIndex = storyWords.findIndex(word => word === badWord);
-// storyWords[badWordIndex] = 'really';
-
-
-// let lengthCheck = storyWords.every(word => word.length <= 10);
-
-// // Step 11: Find and replace word longer than 10 characters
-// let longWord = storyWords.find(word => word.length > 10);
-// let longWordIndex = storyWords.findIndex(word => word === longWord);
-// storyWords[longWordIndex] = 'stunning';
-
-// // Step 12: Log the final story
-// console.log(storyWords.join(' '));
+storyWords[longWord] = 'stunning'
+console.log(longWord)
+console.log(lengthCheck)
 
 
-// // let misspelledWord = 'beautifull';
-
-// // let badWord = 'freaking';
